@@ -1,0 +1,66 @@
+! ============================================================
+! Pythia8 Configuration — CLEF Pipeline
+! pp → HH → bbbb @ 14 TeV
+! Parton shower + hadronization + MPI + beam remnants
+! ============================================================
+
+! --- General settings ---
+Main:numberOfEvents = 100000
+Main:timesAllowErrors = 100
+Init:showChangedSettings = on
+Init:showChangedParticleData = on
+
+! --- Beam parameters ---
+Beams:frameType = 4          ! Read LHE file
+Beams:LHEF = events.lhe.gz  ! Input from MadGraph5
+
+! --- Tune ---
+Tune:pp = 14                 ! Monash 2013 tune (ATLAS A14 compatible)
+Tune:ee = 7                  ! Monash 2013 tune
+
+! --- PDF ---
+PDF:pSet = LHAPDF6:NNPDF31_nnlo_as_0118
+PDF:extrapolate = on
+
+! --- Parton Shower ---
+SpaceShower:rapidityOrder = on
+SpaceShower:pTmaxMatch = 1   ! Use scalup from LHE
+TimeShower:pTmaxMatch = 1
+
+! --- MC@NLO matching ---
+! (automatic when reading NLO LHE events)
+SpaceShower:pTdampMatch = 1
+
+! --- Multiparton Interactions ---
+PartonLevel:MPI = on
+MultipartonInteractions:pT0Ref = 2.28
+MultipartonInteractions:ecmPow = 0.215
+MultipartonInteractions:expPow = 1.85
+
+! --- Hadronization (Lund string) ---
+HadronLevel:all = on
+StringZ:aLund = 0.68
+StringZ:bLund = 0.98
+
+! --- B-hadron settings ---
+! Important for b-jet identification
+ParticleDecays:limitTau0 = on
+ParticleDecays:tau0Max = 10.0  ! mm, keep B-hadrons for Delphes b-tag
+
+! --- Higgs decay (if not done in MadSpin) ---
+! Uncomment if H decay not done at ME level:
+! 25:onMode = off
+! 25:onIfMatch = 5 -5  ! H → bb only
+
+! --- QCD settings ---
+SigmaProcess:alphaSvalue = 0.118
+SigmaProcess:alphaSorder = 2
+
+! --- Output ---
+! HepMC output for Delphes
+! (handled by the steering script)
+
+! --- Color reconnection ---
+ColourReconnection:mode = 1
+ColourReconnection:allowDoubleJunRem = off
+BeamRemnants:remnantMode = 1
