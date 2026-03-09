@@ -1,0 +1,17 @@
+#***********************************************************************
+#  MadSpin Card — H → bb decay
+#  Applied to pp → HH events to get pp → HH → bbbb
+#***********************************************************************
+
+set max_weight_ps_point 400  # PS integration points
+set Nevents_for_max_weight 75  # Events for max weight estimation
+
+set BW_cut 15  # BW cut in units of Gamma
+
+# Decay both Higgs bosons to bb
+decay h > b b~
+decay h > b b~
+
+# This produces the full pp → HH → bb bb final state
+# with spin correlations preserved
+launch
