@@ -1,7 +1,7 @@
 # CLEF Pipeline — κ_λ Extraction from pp → HH → bbbb
 
 ## Purpose
-This pipeline aims to test a specific prediction of the CLEF model (Constantes et Lois Émergentes du Fondamental): the Higgs boson trilinear self-coupling modifier κ_λ = 1,57, which deviates from the Standard Model value (κ_λ = 1) by approximately +57%.
+This pipeline aims to test a specific prediction of the CLEF model (Constantes et Lois Émergentes du Fondamental): the Higgs boson trilinear self-coupling modifier κ_λ , which deviates from the Standard Model value (κ_λ = 1) by approximately +57%.
 The Higgs self-coupling is one of the last unmeasured fundamental parameters of the Standard Model. It governs the shape of the Higgs potential and is directly linked to the mechanism of electroweak symmetry breaking. Measuring κ_λ ≠ 1 would be a clear sign of beyond-Standard-Model (BSM) physics.
 The CLEF framework derives this value from first principles using a Coleman-Weinberg effective potential on a fractal vacuum structure (d_f = 11/3), with an infrared cutoff set by the graviton mass M_G. The prediction is falsifiable at the HL-LHC (14 TeV, 3 ab⁻¹) and future colliders (FCC-hh) through the di-Higgs production channel pp → HH → bb̄bb̄.
 This code provides the full simulation-to-measurement chain:
@@ -17,7 +17,7 @@ The final output is a confidence interval on κ_λ and a significance level for 
 
 ## Framework
 **CLEF** (*Constantes et Lois Émergentes du Fondamental*)  
-Prediction: **κ_λ = 1,57** (Higgs trilinear self-coupling modifier)  
+Prediction: **κ_λ** (Higgs trilinear self-coupling modifier)  
 Derived via Coleman-Weinberg potential with fractal dimension d_f = 11/3 and IR graviton mass cutoff.
 
 ## Pipeline Architecture
@@ -100,7 +100,7 @@ clef_pipeline/
 ### Signal Process
 - **Process**: gg → HH → bb̄bb̄ (loop-induced, NLO QCD)
 - **σ(SM)**: 31.05 fb × BR(bbbb) = 10.5 fb
-- **σ(CLEF, κ_λ=1.5738738045)**: ~8.8 fb (reduced due to enhanced destructive interference)
+- **σ(CLEF, κ_λ)**: ~8.8 fb (reduced due to enhanced destructive interference)
 
 ### Key Observables
 - **m_HH**: Primary discriminant (shape depends on κ_λ)
